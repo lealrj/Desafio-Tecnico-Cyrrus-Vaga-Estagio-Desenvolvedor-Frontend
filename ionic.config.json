@@ -1,0 +1,7 @@
+{
+  "name": "carteira-vacinal",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
