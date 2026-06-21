@@ -143,54 +143,21 @@ O arquivo `.env.local` está incluído no `.gitignore`.
 
 ---
 
-## Troubleshooting
+## Observação sobre erro no console
 
-### Erro: ERR_BLOCKED_BY_CLIENT - aria-hidden
-
-**Sintoma:**
-Erros no console do navegador indicando que requisições para `firestore.googleapis.com` estão sendo bloqueadas com `net::ERR_BLOCKED_BY_CLIENT`.
-
-**Causa:**
-Este erro ocorre quando:
-
-- Extensões do navegador (AdBlock, Privacy Badger, etc) bloqueiam requisições
-- Políticas de CORS não estão configuradas corretamente
-- Certificado SSL/TLS não está válido
-- Variáveis de ambiente do Firebase não estão carregadas corretamente
-
-**Soluções:**
-
-1. **Verificar variáveis de ambiente:**
-   - Certifique-se que `.env.local` está configurado corretamente
-   - Todos os valores em `src/environments/environment.ts` devem usar `window.__FIREBASE_*__`
-
-2. **Desabilitar extensões do navegador:**
-   - Teste em modo anônimo/privado
-   - Desabilite extensões como AdBlock, uBlock, Privacy Badger temporariamente
-
-3. **Verificar regras de segurança do Firestore:**
-   - Acesse Firebase Console → Firestore → Rules
-   - Certifique-se que as regras permitem leitura/escrita apropriada:
-
-   ```
-   rules_version = '2';
-   service cloud.firestore {
-     match /databases/{database}/documents {
-       match /{document=**} {
-         allow read, write: if true;
-       }
-     }
-   }
-   ```
-
-4. **Limpar cache do navegador:**
-   - Limpe cookies e cache do site
-   - Faça reload completo (Ctrl+Shift+R no Windows/Linux, Cmd+Shift+R no Mac)
-
-5. **Verificar Console do navegador:**
-   - Abra DevTools (F12)
-   - Vá para Network e procure por requisições falhadas
-   - Copie o erro completo e procure na documentação do Firebase
+**Durante a navegação entre páginas, o console pode exibir o seguinte aviso:**
+```bash
+Blocked aria-hidden on an element because its descendant retained focus.
+The focus must not be hidden from assistive technology users.
+Avoid using aria-hidden on a focused element or its ancestor.
+Consider using the inert attribute instead…
+Element with focus: <a.button-native>
+Ancestor with aria-hidden: <app-minhas-criancas.ion-page ion-page-hidden>
+```
+Esse alerta é gerado pelo Ionic/Angular quando uma página oculta (aria-hidden="true") ainda retém foco em algum elemento interno. 
+Não afeta o funcionamento da aplicação, sendo apenas uma recomendação de acessibilidade. 
+Infelizmente, não consegui suprimi-lo completamente sem uma intervenção mais profunda no ciclo de vida das páginas. 
+Fica registrado como ponto de melhoria futura.
 
 ---
 
