@@ -1,0 +1,19 @@
+ion-card.ativa {
+  border-left: 4px solid var(--ion-color-primary);
+}
+
+ion-card-content p {
+  margin: 0 0 8px;
+}
+
+.periodo {
+  color: var(--ion-color-medium);
+  font-size: 0.85rem;
+}
+
+.estado-vazio {
+  text-align: center;
+  margin-top: 64px;
+  color: var(--ion-color-medium);
+  grid-column: 1 / -1;
+}

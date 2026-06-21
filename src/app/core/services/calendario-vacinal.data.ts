@@ -1,0 +1,26 @@
+import { Vacina } from "../models/vacina.model";
+
+export const CALENDARIO_VACINAL: Omit<Vacina, 'id'>[] = [
+ { nome: 'BCG', doseDescricao: 'Dose única', idadeRecomendadaMeses: 0, prazoToleranciaMeses: 1, descricao: 'Protege contra formas graves de tuberculose.', obrigatoria: true },
+ { nome: 'Hepatite B', doseDescricao: 'Dose ao nascer', idadeRecomendadaMeses: 0, prazoToleranciaMeses: 1, descricao: 'Previne a infecção pelo vírus da hepatite B.', obrigatoria: true },
+ { nome: 'Pentavalente', doseDescricao: '1ª dose', idadeRecomendadaMeses: 2, prazoToleranciaMeses: 1, descricao: 'Protege contra difteria, tétano, coqueluche, hepatite B e Hib.', obrigatoria: true },
+ { nome: 'Pentavalente', doseDescricao: '2ª dose', idadeRecomendadaMeses: 4, prazoToleranciaMeses: 1, descricao: 'Protege contra difteria, tétano, coqueluche, hepatite B e Hib.', obrigatoria: true },
+ { nome: 'Pentavalente', doseDescricao: '3ª dose', idadeRecomendadaMeses: 6, prazoToleranciaMeses: 1, descricao: 'Protege contra difteria, tétano, coqueluche, hepatite B e Hib.', obrigatoria: true },
+ { nome: 'VIP (Poliomielite)', doseDescricao: '1ª dose', idadeRecomendadaMeses: 2, prazoToleranciaMeses: 1, descricao: 'Vacina inativada contra poliomielite.', obrigatoria: true },
+ { nome: 'VIP (Poliomielite)', doseDescricao: '2ª dose', idadeRecomendadaMeses: 4, prazoToleranciaMeses: 1, descricao: 'Vacina inativada contra poliomielite.', obrigatoria: true },
+ { nome: 'VIP (Poliomielite)', doseDescricao: '3ª dose', idadeRecomendadaMeses: 6, prazoToleranciaMeses: 1, descricao: 'Vacina inativada contra poliomielite.', obrigatoria: true },
+ { nome: 'Pneumocócica 10', doseDescricao: '1ª dose', idadeRecomendadaMeses: 2, prazoToleranciaMeses: 1, descricao: 'Protege contra doenças causadas pelo pneumococo.', obrigatoria: true },
+ { nome: 'Pneumocócica 10', doseDescricao: '2ª dose', idadeRecomendadaMeses: 4, prazoToleranciaMeses: 1, descricao: 'Protege contra doenças causadas pelo pneumococo.', obrigatoria: true },
+ { nome: 'Pneumocócica 10', doseDescricao: 'Reforço', idadeRecomendadaMeses: 12, prazoToleranciaMeses: 2, descricao: 'Reforço da proteção contra pneumococo.', obrigatoria: true },
+ { nome: 'Rotavírus', doseDescricao: '1ª dose', idadeRecomendadaMeses: 2, prazoToleranciaMeses: 1, descricao: 'Previne diarreias graves causadas por rotavírus.', obrigatoria: true },
+ { nome: 'Rotavírus', doseDescricao: '2ª dose', idadeRecomendadaMeses: 4, prazoToleranciaMeses: 1, descricao: 'Previne diarreias graves causadas por rotavírus.', obrigatoria: true },
+ { nome: 'Meningocócica C', doseDescricao: '1ª dose', idadeRecomendadaMeses: 3, prazoToleranciaMeses: 1, descricao: 'Protege contra a meningite C.', obrigatoria: true },
+ { nome: 'Meningocócica C', doseDescricao: '2ª dose', idadeRecomendadaMeses: 5, prazoToleranciaMeses: 1, descricao: 'Protege contra a meningite C.', obrigatoria: true },
+ { nome: 'Meningocócica C', doseDescricao: 'Reforço', idadeRecomendadaMeses: 12, prazoToleranciaMeses: 2, descricao: 'Reforço da proteção contra meningite C.', obrigatoria: true },
+ { nome: 'Febre Amarela', doseDescricao: 'Dose única', idadeRecomendadaMeses: 9, prazoToleranciaMeses: 2, descricao: 'Protege contra a febre amarela.', obrigatoria: true },
+ { nome: 'Tríplice Viral (SCR)', doseDescricao: '1ª dose', idadeRecomendadaMeses: 12, prazoToleranciaMeses: 2, descricao: 'Protege contra sarampo, caxumba e rubéola.', obrigatoria: true },
+ { nome: 'Hepatite A', doseDescricao: 'Dose única', idadeRecomendadaMeses: 15, prazoToleranciaMeses: 2, descricao: 'Previne a hepatite A.', obrigatoria: true },
+ { nome: 'DTP', doseDescricao: '1º reforço', idadeRecomendadaMeses: 15, prazoToleranciaMeses: 2, descricao: 'Reforço contra difteria, tétano e coqueluche.', obrigatoria: true },
+ { nome: 'Varicela', doseDescricao: 'Dose única', idadeRecomendadaMeses: 15, prazoToleranciaMeses: 2, descricao: 'Protege contra a catapora.', obrigatoria: true },
+ { nome: 'DTP', doseDescricao: '2º reforço', idadeRecomendadaMeses: 48, prazoToleranciaMeses: 2, descricao: 'Reforço contra difteria, tétano e coqueluche.', obrigatoria: true },
+]

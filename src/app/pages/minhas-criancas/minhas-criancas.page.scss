@@ -1,0 +1,24 @@
+.estado-vazio {
+  text-align: center;
+  padding: 48px 24px;
+  color: var(--ion-color-medium);
+}
+
+.botao {
+  display: block;
+  margin: 24px auto 50px;
+}
+
+ion-button[fill="clear"] {
+  --color: var(--ion-color-medium);
+  --color-hover: var(--ion-color-primary);
+  margin: 0 4px;
+}
+
+ion-button[color="danger"] {
+  --color: var(--ion-color-danger);
+}
+
+ion-item {
+  cursor: pointer;
+}

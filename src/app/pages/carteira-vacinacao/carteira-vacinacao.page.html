@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ (crianca$ | async)?.nome }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fill="clear" size="small" class="ion-padding">
+  @if (crianca$ | async; as crianca) {
+    <p class="subtitulo">idade: {{ crianca.idadeFormatada() }}</p>
+  }
+
+  <ion-list>
+    @for (linha of (linhas$ | async); track linha.registro.id) {
+      <ion-item>
+        <ion-label>
+          <h2>{{ linha.vacina?.nome }} — {{ linha.vacina?.doseDescricao }}</h2>
+          <p>Prevista: {{ linha.registro.dataPrevista | date:'dd/MM/yyyy' }}</p>
+          @if (linha.registro.dataAplicacao) {
+            <p>Aplicada: {{ linha.registro.dataAplicacao | date:'dd/MM/yyyy' }}</p>
+          }
+        </ion-label>
+        <app-status-vacina-badge [status]="linha.status" slot="end"></app-status-vacina-badge>
+      </ion-item>
+      @if (linha.status !== 'aplicada') {
+        <ion-button fill="clear" size="small" (click)="marcarComoAplicada(linha.registro.id!)">
+          Marcar como aplicada
+        </ion-button>
+      }
+    }
+  </ion-list>
+</ion-content>

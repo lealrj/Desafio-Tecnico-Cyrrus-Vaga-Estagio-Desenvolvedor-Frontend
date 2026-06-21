@@ -1,0 +1,23 @@
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.status-pill--primary {
+  background: rgba(var(--ion-color-primary-rgb), 0.16);
+  color: var(--ion-color-primary-shade);
+}
+
+.status-pill--secondary {
+  background: rgba(var(--ion-color-secondary-rgb), 0.2);
+  color: var(--ion-color-secondary-shade);
+}
+
+.status-pill--tertiary {
+  background: rgba(var(--ion-color-tertiary-rgb), 0.2);
+  color: var(--ion-color-tertiary-shade);
+}

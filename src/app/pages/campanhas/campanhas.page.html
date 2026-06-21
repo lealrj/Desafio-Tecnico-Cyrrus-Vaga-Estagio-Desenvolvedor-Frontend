@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Campanhas de Vacinação</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="grade-campanhas">
+    @for (campanha of (campanhas$ | async); track campanha.id) {
+      <ion-card [class.ativa]="campanha.estaAtiva()">
+        <ion-card-header>
+          <ion-card-subtitle>{{ campanha.publicoAlvo }}</ion-card-subtitle>
+          <ion-card-title>{{ campanha.titulo }}</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <p>{{ campanha.descricao }}</p>
+          <p class="periodo">
+            {{ campanha.dataInicio | date:'dd/MM/yyyy' }} até {{ campanha.dataFim | date:'dd/MM/yyyy' }}
+          </p>
+          @if (campanha.estaAtiva()) {
+            <ion-badge color="primary">Ativa agora</ion-badge>
+          } @else {
+            <ion-badge color="medium">Encerrada</ion-badge>
+          }
+        </ion-card-content>
+      </ion-card>
+    } @empty {
+      <p class="estado-vazio">Nenhuma campanha disponível no momento.</p>
+    }
+  </div>
+</ion-content>

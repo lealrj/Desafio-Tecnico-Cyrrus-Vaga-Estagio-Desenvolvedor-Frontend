@@ -1,0 +1,41 @@
+<ion-header>
+ <ion-toolbar>
+  <ion-buttons slot="start">
+   <ion-back-button defaultHref="/"></ion-back-button>
+  </ion-buttons>
+  <ion-title>Adicionar Criança</ion-title>
+ </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+ <form [formGroup]="formulario" (ngSubmit)="salvar()">
+  <ion-item>
+   <ion-label position="stacked">Nome</ion-label>
+   <ion-input formControlName="nome" placeholder="Nome da criança"></ion-input>
+  </ion-item>
+  @if (formulario.get('nome')?.invalid && formulario.get('nome')?.touched) {
+  <p class="erro">Informe o nome.</p>
+  }
+
+  <ion-item>
+   <ion-label position="stacked">Data de nascimento</ion-label>
+   <ion-input type="date" formControlName="dataNascimento"></ion-input>
+  </ion-item>
+  @if (formulario.get('dataNascimento')?.invalid && formulario.get('dataNascimento')?.touched) {
+  <p class="erro">Informe a data de nascimento.</p>
+  }
+
+  <ion-item>
+   <ion-label position="stacked">Sexo</ion-label>
+   <ion-select formControlName="sexo" placeholder="Selecione">
+    <ion-select-option value="M">Masculino</ion-select-option>
+    <ion-select-option value="F">Feminino</ion-select-option>
+   </ion-select>
+  </ion-item>
+  @if (formulario.get('sexo')?.invalid && formulario.get('sexo')?.touched) {
+  <p class="erro">Selecione o sexo.</p>
+  }
+
+  <ion-button expand="block" type="submit" class="ion-margin-top" routerLink="/minhas-criancas">Salvar</ion-button>
+ </form>
+</ion-content>
