@@ -143,6 +143,57 @@ O arquivo `.env.local` está incluído no `.gitignore`.
 
 ---
 
+## Troubleshooting
+
+### Erro: ERR_BLOCKED_BY_CLIENT - aria-hidden
+
+**Sintoma:**
+Erros no console do navegador indicando que requisições para `firestore.googleapis.com` estão sendo bloqueadas com `net::ERR_BLOCKED_BY_CLIENT`.
+
+**Causa:**
+Este erro ocorre quando:
+
+- Extensões do navegador (AdBlock, Privacy Badger, etc) bloqueiam requisições
+- Políticas de CORS não estão configuradas corretamente
+- Certificado SSL/TLS não está válido
+- Variáveis de ambiente do Firebase não estão carregadas corretamente
+
+**Soluções:**
+
+1. **Verificar variáveis de ambiente:**
+   - Certifique-se que `.env.local` está configurado corretamente
+   - Todos os valores em `src/environments/environment.ts` devem usar `window.__FIREBASE_*__`
+
+2. **Desabilitar extensões do navegador:**
+   - Teste em modo anônimo/privado
+   - Desabilite extensões como AdBlock, uBlock, Privacy Badger temporariamente
+
+3. **Verificar regras de segurança do Firestore:**
+   - Acesse Firebase Console → Firestore → Rules
+   - Certifique-se que as regras permitem leitura/escrita apropriada:
+
+   ```
+   rules_version = '2';
+   service cloud.firestore {
+     match /databases/{database}/documents {
+       match /{document=**} {
+         allow read, write: if true;
+       }
+     }
+   }
+   ```
+
+4. **Limpar cache do navegador:**
+   - Limpe cookies e cache do site
+   - Faça reload completo (Ctrl+Shift+R no Windows/Linux, Cmd+Shift+R no Mac)
+
+5. **Verificar Console do navegador:**
+   - Abra DevTools (F12)
+   - Vá para Network e procure por requisições falhadas
+   - Copie o erro completo e procure na documentação do Firebase
+
+---
+
 ## Desenvolvedor
 
 GitHub: [lealrj](https://github.com/lealrj)
